@@ -1,3 +1,18 @@
-body {
-  background-color: limegreen;
+html, body, #root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
 }
+
+.container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px;
+  justify-content: center;
+}
+
+.red {
+  color: #ff0000;
+}
+
