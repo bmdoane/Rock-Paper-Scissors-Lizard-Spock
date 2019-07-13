@@ -1,12 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import { FaHandRock, FaHandScissors, FaHandPaper, FaHandLizard, FaHandSpock } from 'react-icons/fa'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+class App extends Component {
+  render() {
+    return (
+      <h3>Rock<FaHandRock />, Scissors<FaHandScissors />, Paper<FaHandPaper />, Lizard<FaHandLizard />, Spock <FaHandSpock /></h3>
+    )
+  }
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render (
+  <App / >,
+  document.getElementById('root')
+)
