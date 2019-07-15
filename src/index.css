@@ -16,11 +16,7 @@ html, body, #root {
   align-items: center;
 }
 
-.red {
-  color: #ff0000;
-}
-
-.p10 {
-  padding: 10px;
+.space-around {
+  justify-content: space-around;
 }
 
