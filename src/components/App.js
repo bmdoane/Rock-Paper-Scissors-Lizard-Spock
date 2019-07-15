@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import WeaponsSelect from './WeaponsSelect'
-import PlayerCard from './PlayerCard'
+import Board from './Board'
 
 class App extends Component {
   state = {
@@ -48,11 +48,11 @@ class App extends Component {
     const { weaponSelected, playerWeapon} = this.state
 
     return (
-      <Container>
+      <Container id="top-container">
         <Row>
           <Col></Col>
-          <Col xs={6} className="flex-center">
-            <PlayerCard
+          <Col xs={8} className="flex-center">
+            <Board
               weaponSelected={weaponSelected}
               playerWeapon={playerWeapon}
             />

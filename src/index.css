@@ -4,10 +4,15 @@ html, body, #root {
   width: 100%;
 }
 
-.container {
+#top-container{
   max-width: 1200px;
   margin: 0 auto;
   padding: 50px;
+}
+
+#board-container {
+  margin: 0 auto;
+  padding: 25px;
 }
 
 .flex-center {

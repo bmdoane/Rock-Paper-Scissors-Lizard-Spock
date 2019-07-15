@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaQuestionCircle } from 'react-icons/fa'
-import { Card } from 'react-bootstrap'
+import Card from 'react-bootstrap/Card'
 import Weapon from './Weapon'
 
 export default function PlayerCard({ weaponSelected, playerWeapon }) {
