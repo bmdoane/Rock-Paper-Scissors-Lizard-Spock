@@ -3,8 +3,8 @@ import { FaQuestionCircle } from 'react-icons/fa'
 import Card from 'react-bootstrap/Card'
 import Weapon from './Weapon'
 
-export default function PlayerCard({ human }) {
-  const { name, weaponSelected, playerWeapon} = human
+export default function ComputerCard({ computer }) {
+  const { name, weaponSelected, playerWeapon } = computer
   return (
     <Card className="flex-center">
       <Card.Body>
