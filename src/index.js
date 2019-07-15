@@ -1,15 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ReactDOM from 'react-dom'
+import 'bootstrap/dist/css/bootstrap.css'
 import './index.css'
-import { FaHandRock, FaHandScissors, FaHandPaper, FaHandLizard, FaHandSpock } from 'react-icons/fa'
-
-class App extends Component {
-  render() {
-    return (
-      <h3>Rock<FaHandRock />, Scissors<FaHandScissors />, Paper<FaHandPaper />, Lizard<FaHandLizard />, Spock <FaHandSpock /></h3>
-    )
-  }
-}
+import App from './components/App'
 
 ReactDOM.render (
   <App / >,
