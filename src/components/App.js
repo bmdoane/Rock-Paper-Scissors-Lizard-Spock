@@ -3,49 +3,109 @@ import { Container, Row, Col } from 'react-bootstrap'
 import WeaponsSelect from './WeaponsSelect'
 import Board from './Board'
 
-class App extends Component {
+export default class App extends Component {
   state = {
-    playerWeapon: null,
-    weaponSelected: false
+    human: {
+      name: 'This is you',
+      playerWeapon: null,
+      weaponSelected: false
+    },
+    computer: {
+      name: 'Sheldon',
+      playerWeapon: null,
+      weaponSelected: false
+    }
   }
 
+  componentDidUpdate() {
+
+  }
+
+  randomWeapon() {
+    const arsenal = ['rock', 'paper', 'scissors', 'lizard', 'spock']
+    const result = arsenal[Math.floor(Math.random() * arsenal.length)]
+    return result
+  }
+
+  // Example to setState on nested obj props
+  // Would like to DRY these up
   handleRockSelect = () => {
-    this.setState({
-      weaponSelected: true,
-      playerWeapon: 'rock'
-    })
+    this.setState(prevState => ({
+      human: {
+        ...prevState.human,
+        weaponSelected: true,
+        playerWeapon: 'rock'
+      },
+      computer: {
+        ...prevState.computer,
+        weaponSelected: true,
+        playerWeapon: this.randomWeapon()
+      }
+    }))
   }
 
   handleScissorsSelect = () => {
-    this.setState({
-      weaponSelected: true,
-      playerWeapon: 'scissors'
-    })
+    this.setState(prevState => ({
+      human: {
+        ...prevState.human,
+        weaponSelected: true,
+        playerWeapon: 'scissors'
+      },
+      computer: {
+        ...prevState.computer,
+        weaponSelected: true,
+        playerWeapon: this.randomWeapon()
+      }
+    }))
   }
 
   handlePaperSelect = () => {
-    this.setState({
-      weaponSelected: true,
-      playerWeapon: 'paper'
-    })
+    this.setState(prevState => ({
+      human: {
+        ...prevState.human,
+        weaponSelected: true,
+        playerWeapon: 'paper'
+      },
+      computer: {
+        ...prevState.computer,
+        weaponSelected: true,
+        playerWeapon: this.randomWeapon()
+      }
+    }))
   }
 
   handleLizardSelect = () => {
-    this.setState({
-      weaponSelected: true,
-      playerWeapon: 'lizard'
-    })
+    this.setState(prevState => ({
+      human: {
+        ...prevState.human,
+        weaponSelected: true,
+        playerWeapon: 'lizard'
+      },
+      computer: {
+        ...prevState.computer,
+        weaponSelected: true,
+        playerWeapon: this.randomWeapon()
+      }
+    }))
   }
 
   handleSpockSelect = () => {
-    this.setState({
-      weaponSelected: true,
-      playerWeapon: 'spock'
-    })
+    this.setState(prevState => ({
+      human: {
+        ...prevState.human,
+        weaponSelected: true,
+        playerWeapon: 'spock'
+      },
+      computer: {
+        ...prevState.computer,
+        weaponSelected: true,
+        playerWeapon: this.randomWeapon()
+      }
+    }))
   }
 
   render() {
-    const { weaponSelected, playerWeapon} = this.state
+    const { human, computer } = this.state
 
     return (
       <Container id="top-container">
@@ -53,8 +113,8 @@ class App extends Component {
           <Col></Col>
           <Col xs={8} className="flex-center">
             <Board
-              weaponSelected={weaponSelected}
-              playerWeapon={playerWeapon}
+              human={human}
+              computer={computer}
             />
           </Col>
           <Col></Col>
@@ -76,5 +136,3 @@ class App extends Component {
     )
   }
 }
-
-export default App
