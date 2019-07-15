@@ -4,7 +4,7 @@ import PlayerCard from './PlayerCard'
 import ScoreBoard from './ScoreBoard'
 import ComputerCard from './ComputerCard'
 
-export default function Board({ human, computer }) {
+export default function Board({ human, computer, arsenal }) {
   console.log('Board human', human);
   console.log('Board computer', computer);
 
@@ -14,6 +14,7 @@ export default function Board({ human, computer }) {
         <Col>
           <PlayerCard
             human={human}
+            arsenal={arsenal}
           />
         </Col>
         <Col>
@@ -22,6 +23,7 @@ export default function Board({ human, computer }) {
         <Col>
           <ComputerCard
             computer={computer}
+            arsenal={arsenal}
           />
         </Col>
       </Row>

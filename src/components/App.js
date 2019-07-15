@@ -8,23 +8,42 @@ export default class App extends Component {
     human: {
       name: 'This is you',
       playerWeapon: null,
-      weaponSelected: false
+      weaponSelected: false,
+      wins: 0
     },
     computer: {
       name: 'Sheldon',
       playerWeapon: null,
-      weaponSelected: false
-    }
+      weaponSelected: false,
+      wins: 0
+    },
+    ties: 0,
+    arsenal: ['rock', 'paper', 'scissors', 'lizard', 'spock'],
+    catchPhrase: null
   }
 
   componentDidUpdate() {
-
+    this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon)
   }
 
   randomWeapon() {
-    const arsenal = ['rock', 'paper', 'scissors', 'lizard', 'spock']
-    const result = arsenal[Math.floor(Math.random() * arsenal.length)]
+    const result = this.state.arsenal[Math.floor(Math.random() * this.state.arsenal.length)]
     return result
+  }
+
+  headToHead(player, computer) {
+    const playerWin = [[2, 3], [0, 4], [1, 3], [1, 4], [0, 2]]
+    player = this.state.arsenal.indexOf(player)
+    computer = this.state.arsenal.indexOf(computer)
+    console.log('hw', player)
+    console.log('cw', computer)
+    if (player === computer) {
+      console.log('Tie')
+    } else if (playerWin[player].includes(computer)) {
+      console.log('Player wins');
+    } else {
+      console.log('Sheldon wins');
+    }
   }
 
   // Example to setState on nested obj props
@@ -34,22 +53,7 @@ export default class App extends Component {
       human: {
         ...prevState.human,
         weaponSelected: true,
-        playerWeapon: 'rock'
-      },
-      computer: {
-        ...prevState.computer,
-        weaponSelected: true,
-        playerWeapon: this.randomWeapon()
-      }
-    }))
-  }
-
-  handleScissorsSelect = () => {
-    this.setState(prevState => ({
-      human: {
-        ...prevState.human,
-        weaponSelected: true,
-        playerWeapon: 'scissors'
+        playerWeapon: this.state.arsenal[0]
       },
       computer: {
         ...prevState.computer,
@@ -64,7 +68,22 @@ export default class App extends Component {
       human: {
         ...prevState.human,
         weaponSelected: true,
-        playerWeapon: 'paper'
+        playerWeapon: this.state.arsenal[1]
+      },
+      computer: {
+        ...prevState.computer,
+        weaponSelected: true,
+        playerWeapon: this.randomWeapon()
+      }
+    }))
+  }
+
+  handleScissorsSelect = () => {
+    this.setState(prevState => ({
+      human: {
+        ...prevState.human,
+        weaponSelected: true,
+        playerWeapon: this.state.arsenal[2]
       },
       computer: {
         ...prevState.computer,
@@ -79,7 +98,7 @@ export default class App extends Component {
       human: {
         ...prevState.human,
         weaponSelected: true,
-        playerWeapon: 'lizard'
+        playerWeapon: this.state.arsenal[3]
       },
       computer: {
         ...prevState.computer,
@@ -94,7 +113,7 @@ export default class App extends Component {
       human: {
         ...prevState.human,
         weaponSelected: true,
-        playerWeapon: 'spock'
+        playerWeapon: this.state.arsenal[4]
       },
       computer: {
         ...prevState.computer,
@@ -105,7 +124,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { human, computer } = this.state
+    const { human, computer, arsenal } = this.state
 
     return (
       <Container id="top-container">
@@ -115,6 +134,7 @@ export default class App extends Component {
             <Board
               human={human}
               computer={computer}
+              arsenal={arsenal}
             />
           </Col>
           <Col></Col>
