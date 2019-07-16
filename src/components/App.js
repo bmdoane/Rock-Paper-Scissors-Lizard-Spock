@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import WeaponsSelect from './WeaponsSelect'
+import Headline from './Headline'
 import Board from './Board'
+import WeaponsSelect from './WeaponsSelect'
 
 export default class App extends Component {
   state = {
@@ -86,6 +87,11 @@ export default class App extends Component {
 
     return (
       <Container id="top-container">
+        <Row>
+          <Col>
+            <Headline />
+          </Col>
+        </Row>
         <Row>
           <Col></Col>
           <Col xs={8} className="flex-center">
