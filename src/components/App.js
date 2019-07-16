@@ -22,17 +22,15 @@ export default class App extends Component {
     catchPhrase: null
   }
 
-  componentDidUpdate() {
-  }
-
   randomWeapon() {
     const result = this.state.arsenal[Math.floor(Math.random() * this.state.arsenal.length)]
     return result
   }
 
-  // tieTally() {
-  //   this.setState({ tie: this.state.tie + 1 })
-  // }
+  tieTally() {
+    console.log('this fired', this.state);
+    this.setState({ tie: this.state.tie + 1 })
+  }
 
   // humanWinTally() {
   //   this.setState(prevState => ({
@@ -58,85 +56,23 @@ export default class App extends Component {
     computer = this.state.arsenal.indexOf(computer)
     if (player === computer) {
       console.log('Tie')
-
+      this.tieTally()
     } else if (playerWin[player].includes(computer)) {
       console.log('Player wins');
-
+      this.tieTally()
     } else {
       console.log('Sheldon wins');
-
+      this.tieTally()
     }
   }
 
   // Example to setState on nested obj props
-  // Would like to DRY these up
-  handleRockSelect = () => {
+  handleSelect = (weapon) => {
     this.setState(prevState => ({
       human: {
         ...prevState.human,
         weaponSelected: true,
-        playerWeapon: this.state.arsenal[0]
-      },
-      computer: {
-        ...prevState.computer,
-        weaponSelected: true,
-        playerWeapon: this.randomWeapon()
-      }
-    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
-    // Want to call head to head with callback in last parans
-  }
-
-  handlePaperSelect = () => {
-    this.setState(prevState => ({
-      human: {
-        ...prevState.human,
-        weaponSelected: true,
-        playerWeapon: this.state.arsenal[1]
-      },
-      computer: {
-        ...prevState.computer,
-        weaponSelected: true,
-        playerWeapon: this.randomWeapon()
-      }
-    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
-  }
-
-  handleScissorsSelect = () => {
-    this.setState(prevState => ({
-      human: {
-        ...prevState.human,
-        weaponSelected: true,
-        playerWeapon: this.state.arsenal[2]
-      },
-      computer: {
-        ...prevState.computer,
-        weaponSelected: true,
-        playerWeapon: this.randomWeapon()
-      }
-    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
-  }
-
-  handleLizardSelect = () => {
-    this.setState(prevState => ({
-      human: {
-        ...prevState.human,
-        weaponSelected: true,
-        playerWeapon: this.state.arsenal[3]
-      },
-      computer: {
-        ...prevState.computer,
-        weaponSelected: true,
-        playerWeapon: this.randomWeapon()
-      }
-    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
-  }
-
-  handleSpockSelect = () => {
-    this.setState(prevState => ({
-      human: {
-        ...prevState.human,
-        weaponSelected: true,
-        playerWeapon: this.state.arsenal[4]
+        playerWeapon: weapon
       },
       computer: {
         ...prevState.computer,
@@ -167,11 +103,7 @@ export default class App extends Component {
           <Col></Col>
           <Col xs={6} className="flex-center">
             <WeaponsSelect
-              handleRockSelect={this.handleRockSelect}
-              handleScissorsSelect={this.handleScissorsSelect}
-              handlePaperSelect={this.handlePaperSelect}
-              handleLizardSelect={this.handleLizardSelect}
-              handleSpockSelect={this.handleSpockSelect}
+              handleSelect={this.handleSelect}
             />
           </Col>
           <Col></Col>
