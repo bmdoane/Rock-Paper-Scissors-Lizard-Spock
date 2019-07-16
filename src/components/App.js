@@ -28,41 +28,40 @@ export default class App extends Component {
   }
 
   tieTally() {
-    console.log('this fired', this.state);
-    this.setState({ tie: this.state.tie + 1 })
+    this.setState({ ties: this.state.ties + 1 })
   }
 
-  // humanWinTally() {
-  //   this.setState(prevState => ({
-  //     human: {
-  //       ...prevState.human,
-  //       wins: this.state.wins + 1
-  //     }
-  //   }))
-  // }
+  humanWinTally() {
+    this.setState(prevState => ({
+      human: {
+        ...prevState.human,
+        wins: this.state.human.wins + 1
+      }
+    }))
+  }
 
-  // computerWinTally() {
-  //   this.setState(prevState => ({
-  //     computer: {
-  //       ...prevState.computer,
-  //       wins: this.state.wins + 1
-  //     }
-  //   }))
-  // }
+  computerWinTally() {
+    this.setState(prevState => ({
+      computer: {
+        ...prevState.computer,
+        wins: this.state.computer.wins + 1
+      }
+    }))
+  }
 
-  headToHead(player, computer) {
+  headToHead(playerWeap, computerWeap) {
     const playerWin = [[2, 3], [0, 4], [1, 3], [1, 4], [0, 2]]
-    player = this.state.arsenal.indexOf(player)
-    computer = this.state.arsenal.indexOf(computer)
-    if (player === computer) {
-      console.log('Tie')
+    const playerIndex = this.state.arsenal.indexOf(playerWeap)
+    const computerIndex = this.state.arsenal.indexOf(computerWeap)
+    if (playerIndex === computerIndex) {
+      console.log('tie')
       this.tieTally()
-    } else if (playerWin[player].includes(computer)) {
-      console.log('Player wins');
-      this.tieTally()
+    } else if (playerWin[playerIndex].includes(computerIndex)) {
+      console.log('You win')
+      this.humanWinTally()
     } else {
-      console.log('Sheldon wins');
-      this.tieTally()
+      console.log('Sheldon wins')
+      this.computerWinTally()
     }
   }
 
