@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Headline from './Headline'
 import Board from './Board'
+import Guide from './Guide'
 import WeaponsSelect from './WeaponsSelect'
 
 export default class App extends Component {
@@ -19,8 +20,11 @@ export default class App extends Component {
       wins: 0
     },
     ties: 0,
+    start: true,
+    winner: false,
     arsenal: ['rock', 'paper', 'scissors', 'lizard', 'spock'],
-    catchPhrase: null
+    playerWin: [[2, 3], [0, 4], [1, 3], [1, 4], [0, 2]],
+    results: null
   }
 
   randomWeapon() {
@@ -29,41 +33,46 @@ export default class App extends Component {
   }
 
   tieTally() {
-    this.setState({ ties: this.state.ties + 1 })
+    this.setState({ 
+      ties: this.state.ties + 1,
+      results: [0, 0].toString()
+    })
   }
 
-  humanWinTally() {
+  humanWinTally(playerIndex, computerIndex) {
     this.setState(prevState => ({
       human: {
         ...prevState.human,
         wins: this.state.human.wins + 1
-      }
+      },
+      results: [playerIndex, computerIndex].toString()
     }))
   }
 
-  computerWinTally() {
+  computerWinTally(computerIndex, playerIndex) {
     this.setState(prevState => ({
       computer: {
         ...prevState.computer,
         wins: this.state.computer.wins + 1
-      }
+      },
+      results: [computerIndex, playerIndex].toString()
     }))
   }
 
   headToHead(playerWeap, computerWeap) {
-    const playerWin = [[2, 3], [0, 4], [1, 3], [1, 4], [0, 2]]
     const playerIndex = this.state.arsenal.indexOf(playerWeap)
     const computerIndex = this.state.arsenal.indexOf(computerWeap)
     if (playerIndex === computerIndex) {
       console.log('tie')
-      this.tieTally()
-    } else if (playerWin[playerIndex].includes(computerIndex)) {
+      this.tieTally(playerIndex, computerIndex)
+    } else if (this.state.playerWin[playerIndex].includes(computerIndex)) {
       console.log('You win')
-      this.humanWinTally()
+      this.humanWinTally(playerIndex, computerIndex)
     } else {
       console.log('Sheldon wins')
-      this.computerWinTally()
+      this.computerWinTally(computerIndex, playerIndex)
     }
+    // this.setState({ results: [playerIndex, computerIndex] })
   }
 
   // Example to setState on nested obj props
@@ -78,12 +87,14 @@ export default class App extends Component {
         ...prevState.computer,
         weaponSelected: true,
         playerWeapon: this.randomWeapon()
-      }
+      },
+      start: false
     }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
   }
 
   render() {
-    const { human, computer, arsenal, ties } = this.state
+    console.log('results', this.state.results);
+    const { human, computer, arsenal, ties, start, results } = this.state
 
     return (
       <Container id="top-container">
@@ -103,6 +114,16 @@ export default class App extends Component {
             />
           </Col>
           <Col></Col>
+        </Row>
+        <Row>
+          <Col>
+            <Guide
+              start={start}
+              results={results}
+              human={human}
+              computer={computer}
+            />
+          </Col>
         </Row>
         <Row>
           <Col></Col>
