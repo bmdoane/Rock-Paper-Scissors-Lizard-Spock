@@ -21,7 +21,17 @@ html, body, #root {
   align-items: center;
 }
 
-.space-around {
-  justify-content: space-around;
+.scoreboard-text {
+  font-weight: bold;
+  font-size: 25px;
+  padding: 0px 15px 0px 15px;
+}
+
+.ul {
+  text-decoration: underline;
+}
+
+.h176 {
+  height: 176px;
 }
 
