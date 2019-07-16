@@ -6,7 +6,7 @@ import Weapon from './Weapon'
 export default function ComputerCard({ computer, arsenal }) {
   const { name, weaponSelected, playerWeapon } = computer
   return (
-    <Card className="flex-center">
+    <Card className="flex-center" border="dark">
       <Card.Body>
         <Card.Title className="text-center">{name}</Card.Title>
           {!weaponSelected ?

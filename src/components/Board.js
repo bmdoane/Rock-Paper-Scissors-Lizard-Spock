@@ -19,7 +19,11 @@ export default function Board({ human, computer, arsenal, ties }) {
           />
         </Col>
         <Col>
-          <ScoreBoard />
+          <ScoreBoard
+            human={human}
+            computer={computer}
+            ties={ties}
+          />
         </Col>
         <Col>
           <ComputerCard
