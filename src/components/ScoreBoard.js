@@ -5,7 +5,7 @@ export default function ScoreBoard() {
   return (
     <Card className="flex-center">
       <Card.Body>
-        <Card.Title className="flex-center">Score Board</Card.Title>
+        <Card.Title className="text-center">Score Board</Card.Title>
       </Card.Body>
     </Card>
   )

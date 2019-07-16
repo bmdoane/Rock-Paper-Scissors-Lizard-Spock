@@ -8,8 +8,8 @@ export default function PlayerCard({ human, arsenal }) {
   return (
     <Card className="flex-center">
       <Card.Body>
-        <Card.Title className="flex-center">{name}</Card.Title>
-          {!weaponSelected ? 
+        <Card.Title className="text-center">{name}</Card.Title>
+          {!weaponSelected ?
             <FaQuestionCircle size={100} fill="#ff0000" /> :
             <Weapon
               playerWeapon={playerWeapon}
