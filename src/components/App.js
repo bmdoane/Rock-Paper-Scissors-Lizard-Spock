@@ -23,7 +23,6 @@ export default class App extends Component {
   }
 
   componentDidUpdate() {
-    this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon)
   }
 
   randomWeapon() {
@@ -31,18 +30,41 @@ export default class App extends Component {
     return result
   }
 
+  // tieTally() {
+  //   this.setState({ tie: this.state.tie + 1 })
+  // }
+
+  // humanWinTally() {
+  //   this.setState(prevState => ({
+  //     human: {
+  //       ...prevState.human,
+  //       wins: this.state.wins + 1
+  //     }
+  //   }))
+  // }
+
+  // computerWinTally() {
+  //   this.setState(prevState => ({
+  //     computer: {
+  //       ...prevState.computer,
+  //       wins: this.state.wins + 1
+  //     }
+  //   }))
+  // }
+
   headToHead(player, computer) {
     const playerWin = [[2, 3], [0, 4], [1, 3], [1, 4], [0, 2]]
     player = this.state.arsenal.indexOf(player)
     computer = this.state.arsenal.indexOf(computer)
-    console.log('hw', player)
-    console.log('cw', computer)
     if (player === computer) {
       console.log('Tie')
+
     } else if (playerWin[player].includes(computer)) {
       console.log('Player wins');
+
     } else {
       console.log('Sheldon wins');
+
     }
   }
 
@@ -60,7 +82,8 @@ export default class App extends Component {
         weaponSelected: true,
         playerWeapon: this.randomWeapon()
       }
-    }))
+    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
+    // Want to call head to head with callback in last parans
   }
 
   handlePaperSelect = () => {
@@ -75,7 +98,7 @@ export default class App extends Component {
         weaponSelected: true,
         playerWeapon: this.randomWeapon()
       }
-    }))
+    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
   }
 
   handleScissorsSelect = () => {
@@ -90,7 +113,7 @@ export default class App extends Component {
         weaponSelected: true,
         playerWeapon: this.randomWeapon()
       }
-    }))
+    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
   }
 
   handleLizardSelect = () => {
@@ -105,7 +128,7 @@ export default class App extends Component {
         weaponSelected: true,
         playerWeapon: this.randomWeapon()
       }
-    }))
+    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
   }
 
   handleSpockSelect = () => {
@@ -120,11 +143,11 @@ export default class App extends Component {
         weaponSelected: true,
         playerWeapon: this.randomWeapon()
       }
-    }))
+    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
   }
 
   render() {
-    const { human, computer, arsenal } = this.state
+    const { human, computer, arsenal, ties } = this.state
 
     return (
       <Container id="top-container">
@@ -135,6 +158,7 @@ export default class App extends Component {
               human={human}
               computer={computer}
               arsenal={arsenal}
+              ties={ties}
             />
           </Col>
           <Col></Col>

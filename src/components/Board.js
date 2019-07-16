@@ -4,9 +4,10 @@ import PlayerCard from './PlayerCard'
 import ScoreBoard from './ScoreBoard'
 import ComputerCard from './ComputerCard'
 
-export default function Board({ human, computer, arsenal }) {
-  console.log('Board human', human);
-  console.log('Board computer', computer);
+export default function Board({ human, computer, arsenal, ties }) {
+  console.log('Board human', human)
+  console.log('Board computer', computer)
+  console.log('ties', ties)
 
   return (
     <Container id="board-container">
