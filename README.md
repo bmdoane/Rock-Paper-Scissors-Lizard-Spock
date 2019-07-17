@@ -1,3 +1,12 @@
+# A take on Rock, Paper, Scissors, Lizard, Spock
+
+This is a project I undertook to advance my skills using [React.js](https://reactjs.org/) and other parts of its ecosystem. The game Rock, Paper, Lizard, Scissors, Spock is an extension of the original classic Rock, Paper, Scissors, which is used by all ages to settle disputes or just to have a little fun. For more on the game, it's rules and it's origin, visit [https://bigbangtheory.fandom.com/wiki/Rock%2C_Paper%2C_Scissors%2C_Lizard%2C_Spock](https://bigbangtheory.fandom.com/wiki/Rock%2C_Paper%2C_Scissors%2C_Lizard%2C_Spock).
+
+## Rules
+It's you vs. Sheldon! First player to 5 wins the game. Choose your weapons wisely.
+
+![Rock, Paper, Scissors, Lizard, Spock](RPSLS.gif)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
