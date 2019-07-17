@@ -46,7 +46,7 @@ export default class App extends Component {
         wins: this.state.human.wins + 1
       },
       results: [playerIndex, computerIndex].toString()
-    }))
+    }), () => this.gameReset(this.state.human.wins))
   }
 
   computerWinTally(computerIndex, playerIndex) {
@@ -56,7 +56,35 @@ export default class App extends Component {
         wins: this.state.computer.wins + 1
       },
       results: [computerIndex, playerIndex].toString()
-    }))
+    }), () => this.gameReset(this.state.computer.wins))
+  }
+
+  gameReset(wins) {
+    if (wins === 5) {
+      this.setState({ winner: true })
+      console.log('boom')
+      setTimeout(() => {
+        this.setState(prevState => ({
+          human: {
+            ...prevState.human,
+            playerWeapon: null,
+            weaponSelected: false,
+            wins: 0
+          },
+          computer: {
+            ...prevState.computer,
+            playerWeapon: null,
+            weaponSelected: false,
+            wins: 0
+          },
+          ties: 0,
+          start: true,
+          winner:false
+        }))
+      }, 5000)
+    } else {
+      return null
+    }
   }
 
   headToHead(playerWeap, computerWeap) {
@@ -72,10 +100,8 @@ export default class App extends Component {
       console.log('Sheldon wins')
       this.computerWinTally(computerIndex, playerIndex)
     }
-    // this.setState({ results: [playerIndex, computerIndex] })
   }
 
-  // Example to setState on nested obj props
   handleSelect = (weapon) => {
     this.setState(prevState => ({
       human: {
@@ -89,12 +115,14 @@ export default class App extends Component {
         playerWeapon: this.randomWeapon()
       },
       start: false
-    }), () => this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon))
+    }), () => {
+        this.headToHead(this.state.human.playerWeapon, this.state.computer.playerWeapon)
+      }
+    )
   }
 
   render() {
-    console.log('results', this.state.results);
-    const { human, computer, arsenal, ties, start, results } = this.state
+    const { human, computer, arsenal, ties, start, results, winner } = this.state
 
     return (
       <Container id="top-container">
@@ -130,6 +158,7 @@ export default class App extends Component {
           <Col xs={6} className="flex-center">
             <WeaponsSelect
               handleSelect={this.handleSelect}
+              winner={winner}
             />
           </Col>
           <Col></Col>
