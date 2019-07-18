@@ -6,7 +6,7 @@ export default function WeaponsSelect({ handleSelect, winner }) {
 
   return (
     <ButtonToolbar aria-label="Toolbar with buttons">
-      <Button type="button" onClick={() => handleSelect('rock')} disabled={winner}variant="dark" className="mr-2">
+      <Button type="button" id="rock" onClick={() => handleSelect('rock')} disabled={winner}variant="dark" className="mr-2">
         <FaHandRock size={42} fill="#ff0000" />
       </Button>
       <Button type="button" onClick={() => handleSelect('paper')} disabled={winner} variant="dark" className="mr-2">
