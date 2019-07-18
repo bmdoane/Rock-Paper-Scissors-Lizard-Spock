@@ -11,7 +11,7 @@ export default function ComputerCard({ computer, arsenal }) {
         <Card.Title className="text-center">{name}</Card.Title>
           {!weaponSelected ?
             <FaQuestionCircle size={100} fill="#ff0000" /> :
-            <Weapon 
+            <Weapon
               playerWeapon={playerWeapon}
               arsenal={arsenal}
             />
