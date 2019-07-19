@@ -7,6 +7,8 @@ It's you vs. Sheldon! First player to 5 wins the game. Choose your weapons wisel
 
 ![Rock, Paper, Scissors, Lizard, Spock](RPSLS.gif)
 
+Made with NPM version 6.10.1.  Fork or clone project to your directory and run npm init.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

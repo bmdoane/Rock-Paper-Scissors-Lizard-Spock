@@ -5,7 +5,7 @@ export default function Headline({ arsenal }) {
 
   return (
     <Row className="flex-center">
-      <h3>{arsenal.map(weap => (weap.charAt(0).toUpperCase() + weap.slice(1))).join(', ')}</h3>
+      <h3 className="russo">{arsenal.map(weap => (weap.charAt(0).toUpperCase() + weap.slice(1))).join(', ')}</h3>
     </Row>
   )
 }
