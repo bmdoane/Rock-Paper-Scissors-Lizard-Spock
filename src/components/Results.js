@@ -1,5 +1,4 @@
 import React from 'react'
-import { FaWpbeginner } from 'react-icons/fa';
 
 function firstCase(weap) {
   return weap.charAt(0).toUpperCase() + weap.slice(1)
@@ -19,7 +18,7 @@ export default function Results({ results, human, computer, arsenal }) {
 
   switch (results) {
     case '0,0':
-      return <h4>{winCheck(human, computer, 'Tie!!!  Back to the pit!')}</h4>    
+      return <h4>{winCheck(human, computer, 'Tie!!!  Back to the pit!')}</h4>
     case '0,3':
       return <h4>{winCheck(human, computer, `${firstCase(arsenal[0])} crushes ${arsenal[3]}!`)}</h4>
     case '0,2':
