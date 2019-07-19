@@ -22,7 +22,7 @@ export default class App extends Component {
     ties: 0,
     start: true,
     winner: false,
-    arsenal: ['rock', 'paper', 'scissors', 'lizard', 'spock'],
+    arsenal: ['rock', 'paper', 'scissors', 'lizard', 'Spock'],
     playerWin: [[2, 3], [0, 4], [1, 3], [1, 4], [0, 2]],
     results: null
   }
@@ -62,7 +62,6 @@ export default class App extends Component {
   gameReset(wins) {
     if (wins === 5) {
       this.setState({ winner: true })
-      console.log('boom')
       setTimeout(() => {
         this.setState(prevState => ({
           human: {
@@ -91,13 +90,10 @@ export default class App extends Component {
     const playerIndex = this.state.arsenal.indexOf(playerWeap)
     const computerIndex = this.state.arsenal.indexOf(computerWeap)
     if (playerIndex === computerIndex) {
-      console.log('tie')
       this.tieTally(playerIndex, computerIndex)
     } else if (this.state.playerWin[playerIndex].includes(computerIndex)) {
-      console.log('You win')
       this.humanWinTally(playerIndex, computerIndex)
     } else {
-      console.log('Sheldon wins')
       this.computerWinTally(computerIndex, playerIndex)
     }
   }
@@ -128,7 +124,9 @@ export default class App extends Component {
       <Container id="top-container">
         <Row>
           <Col>
-            <Headline />
+            <Headline
+              arsenal={arsenal}
+            />
           </Col>
         </Row>
         <Row>
@@ -150,6 +148,7 @@ export default class App extends Component {
               results={results}
               human={human}
               computer={computer}
+              arsenal={arsenal}
             />
           </Col>
         </Row>
@@ -159,6 +158,7 @@ export default class App extends Component {
             <WeaponsSelect
               handleSelect={this.handleSelect}
               winner={winner}
+              arsenal={arsenal}
             />
           </Col>
           <Col></Col>
