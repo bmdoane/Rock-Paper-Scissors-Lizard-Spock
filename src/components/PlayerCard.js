@@ -6,7 +6,7 @@ import Weapon from './Weapon'
 export default function PlayerCard({ human, arsenal }) {
   const { name, weaponSelected, playerWeapon} = human
   return (
-    <Card className="flex-center" border="dark">
+    <Card className="flex-center russo" border="dark">
       <Card.Body>
         <Card.Title className="text-center">{name}</Card.Title>
           {!weaponSelected ?

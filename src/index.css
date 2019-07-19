@@ -4,6 +4,10 @@ html, body, #root {
   width: 100%;
 }
 
+.russo {
+  font-family: 'Russo One', sans-serif;
+}
+
 #top-container{
   display: flex;
   flex-direction: column;
