@@ -3,10 +3,9 @@ import { Container, Row, Col, Card } from 'react-bootstrap'
 
 export default function ScoreBoard({ human, computer, ties }) {
 
-
   return (
     <Card className="flex-center" border="dark">
-      <Card.Body className="h176">
+      <Card.Body>
         <Card.Title className="text-center">Score Board</Card.Title>
           <Container className="flex-center">
             <Row>

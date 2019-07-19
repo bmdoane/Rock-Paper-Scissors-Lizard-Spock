@@ -33,7 +33,7 @@ export default class App extends Component {
   }
 
   tieTally() {
-    this.setState({ 
+    this.setState({
       ties: this.state.ties + 1,
       results: [0, 0].toString()
     })
@@ -130,8 +130,7 @@ export default class App extends Component {
           </Col>
         </Row>
         <Row>
-          <Col></Col>
-          <Col xs={8} className="flex-center">
+          <Col>
             <Board
               human={human}
               computer={computer}
@@ -139,7 +138,6 @@ export default class App extends Component {
               ties={ties}
             />
           </Col>
-          <Col></Col>
         </Row>
         <Row>
           <Col>
@@ -153,15 +151,13 @@ export default class App extends Component {
           </Col>
         </Row>
         <Row>
-          <Col></Col>
-          <Col xs={6} className="flex-center">
+          <Col>
             <WeaponsSelect
               handleSelect={this.handleSelect}
               winner={winner}
               arsenal={arsenal}
             />
           </Col>
-          <Col></Col>
         </Row>
       </Container>
     )

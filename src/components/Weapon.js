@@ -2,6 +2,7 @@ import React from 'react'
 import { FaQuestionCircle, FaHandRock, FaHandScissors, FaHandPaper, FaHandLizard, FaHandSpock } from 'react-icons/fa'
 
 export default function Weapon({ playerWeapon, arsenal }) {
+
   switch (playerWeapon) {
     case arsenal[0]:
       return <FaHandRock size={100} fill="#ff0000" />
