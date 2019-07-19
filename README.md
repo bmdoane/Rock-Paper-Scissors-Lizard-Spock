@@ -5,7 +5,7 @@ This is a project I undertook to advance my skills using [React.js](https://reac
 ## Rules
 It's you vs. Sheldon! First player to 5 wins the game. Choose your weapons wisely.
 
-![Rock, Paper, Scissors, Lizard, Spock](RPSLS.gif)
+![Rock, Paper, Scissors, Lizard, Spock](R_P_S_L_S.gif)
 
 Made with NPM version 6.10.1.  Fork or clone project to your directory and run npm init.
 
