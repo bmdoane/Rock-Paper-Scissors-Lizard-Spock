@@ -5,8 +5,8 @@ export default function ScoreBoard({ human, computer, ties }) {
 
   return (
     <Card className="flex-center" border="dark">
-      <Card.Body>
-        <Card.Title className="text-center russo" style={{ paddingBottom: '16px' }}>Score Board</Card.Title>
+      <Card.Body style={{ width: '165px', padding: '0' }}>
+        <Card.Title className="text-center russo" style={{ padding: '20px 0 16px 0' }}>Score Board</Card.Title>
           <Container className="flex-center">
             <Row>
               <Col>
