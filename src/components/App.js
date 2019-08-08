@@ -22,6 +22,7 @@ export default class App extends Component {
     ties: 0,
     start: true,
     winner: false,
+    winGameTotal: 5,
     arsenal: ['rock', 'paper', 'scissors', 'lizard', 'Spock'],
     playerWin: [[2, 3], [0, 4], [1, 3], [1, 4], [0, 2]],
     results: null
@@ -60,7 +61,7 @@ export default class App extends Component {
   }
 
   gameReset(wins) {
-    if (wins === 5) {
+    if (wins === this.state.winGameTotal) {
       this.setState({ winner: true })
       setTimeout(() => {
         this.setState(prevState => ({
@@ -118,7 +119,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { human, computer, arsenal, ties, start, results, winner } = this.state
+    const { human, computer, arsenal, ties, start, results, winner, winGameTotal } = this.state
 
     return (
       <Container id="top-container">
@@ -147,6 +148,7 @@ export default class App extends Component {
               human={human}
               computer={computer}
               arsenal={arsenal}
+              winGameTotal={winGameTotal}
             />
           </Col>
         </Row>
