@@ -6,9 +6,9 @@ import Weapon from './Weapon'
 export default function ComputerCard({ computer, arsenal }) {
   const { name, weaponSelected, playerWeapon } = computer
   return (
-    <Card className="flex-center" border="dark">
+    <Card className="text-center" border="dark">
       <Card.Body>
-        <Card.Title className="text-center russo">{name}</Card.Title>
+        <Card.Title className="russo">{name}</Card.Title>
           {!weaponSelected ?
             <FaQuestionCircle size={100} fill="#ff0000" /> :
             <Weapon
