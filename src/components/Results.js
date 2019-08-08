@@ -4,11 +4,11 @@ function firstCase(statement) {
   return <h4>{statement.charAt(0).toUpperCase() + statement.slice(1)}</h4>
 }
 
-function winCheck(human, computer, statement) {
+function winCheck(human, computer, statement, winGameTotal) {
   function winnerText() {
-    if (human.wins === 5) {
+    if (human.wins === winGameTotal) {
       return `${statement.slice(0, -1)} and you win!`
-    } else if (computer.wins === 5) {
+    } else if (computer.wins === winGameTotal) {
       return `${statement.slice(0, -1)} and ${computer.name} wins...`
     } else {
       return statement
@@ -18,7 +18,7 @@ function winCheck(human, computer, statement) {
   return firstCase(winnerResult)
 }
 
-export default function Results({ results, human, computer, arsenal }) {
+export default function Results({ results, human, computer, arsenal, winGameTotal }) {
   function caseText() {
     switch (results) {
       case '0,0':
@@ -48,5 +48,5 @@ export default function Results({ results, human, computer, arsenal }) {
     }
   }
   const resultText = caseText()
-  return winCheck(human, computer, resultText)
+  return winCheck(human, computer, resultText, winGameTotal)
 }

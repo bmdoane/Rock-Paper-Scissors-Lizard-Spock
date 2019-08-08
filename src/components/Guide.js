@@ -2,7 +2,7 @@ import React from 'react'
 import Row from 'react-bootstrap/Row'
 import Results from './Results'
 
-export default function Guide({ start, results, human, computer, arsenal }) {
+export default function Guide({ start, results, human, computer, arsenal, winGameTotal }) {
   const { name } = computer
 
   return (
@@ -14,6 +14,7 @@ export default function Guide({ start, results, human, computer, arsenal }) {
           human={human}
           computer={computer}
           arsenal={arsenal}
+          winGameTotal={winGameTotal}
         />
       }
     </Row>
