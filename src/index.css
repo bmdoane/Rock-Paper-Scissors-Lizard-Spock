@@ -39,11 +39,12 @@ h3, h4 {
 .card {
   width: 200px;
   height: 180px;
+  padding: 0;
 }
 
 .scoreboard-text {
   font-weight: bold;
-  font-size: 25px;
+  font-size: 23px;
   padding: 0px 15px 0px 15px;
 }
 
